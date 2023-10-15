@@ -20,24 +20,33 @@
     justify-content: space-between;
         margin: auto;
         margin-top: 40px;
-        width: 300px;
-        height: 400px;
+        width:100vw;
+        height: 250px;
         border: 1px solid black;
         background: gray;
         border-radius: 10px;
     }
-    .Lampada{
+    .lampada{
+       position: relative;
         width: 200px;
         height: 250px;
-        border: 1px solid red;
+
         margin: auto;
+        background-image: url(./imgem/lampada_apagada.png);
+        background-position: center,center;
+        background-repeat: no-repeat;
+        background-size:contain;
+        border-radius: 200px;
+        display:block;
+
+    
     }
     .tomada{
         margin: auto;
         display: flex;
         justify-content: space-evenly;
       align-items: center;
-        border: 1px solid red;
+     
         width: 200px;
         height: 30px;
         border-radius: 20px;
@@ -47,15 +56,31 @@
    button{
         width: 98px;
         height: 25px;
+        cursor: pointer;
         
     }
     .bOn{
         border-radius: 0px 20px 20px 0px;
-        background-color: rgba(0, 128, 0, 0.653);
+        background-color:yellow;
     }
     .bOff{
         border-radius: 20px 0px  0px 20px ;
-        background-color: rgba(165, 42, 42, 0.653);
+        background-color: white;
+    
+    }
+    .break{
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    border-radius: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+ 
+ 
+    height: 180px;
+    width: 180px;
+
     }
     
 
@@ -65,20 +90,63 @@
 <body>
     <main>
 
-   <section class="Lampada" >
+   <section class="lampada" >
     
-    <div><img src="" alt="">
-    <button>break</button></div>
+
+    <button class="break"onclick="queimou()"></button>
    
    </section>
 
    <section class="tomada">
-    <div class="desliga" ><button class="bOff">off</button></div>
-    <div class="liga" ><button class="bOn">on</button></div>
+    <div class="desliga" onclick="clarear()" ><button class="bOff">luz branca</button></div>
+    <div class="liga"onclick= "acender()"><button class="bOn">luz amarela</button></div>
     
    </section>
 
     </main>
-    
+    <script>
+      let quebra = document.querySelector(".break");
+      let ligar = document.querySelector(".ligar");
+      let desligar = document.querySelector(".desligar");
+      let lampada = document.querySelector(".lampada");
+
+
+      function queimou (){
+        let backgroundImage = lampada.style.backgroundImage;
+        
+            lampada.style.backgroundImage ="url('./imgem/queimada.png')"
+
+
+        
+
+      }
+
+
+
+      function acender(){
+        let backgroundImage = lampada.style.backgroundImage;
+        if (backgroundImage.includes("lampada_apagada.png")){
+            lampada.style.backgroundImage ="url('./imgem/lampada_acesa.png')"
+
+        }else{lampada.style.backgroundImage =  "url('./imgem/lampada_apagada.png')"}
+      }
+    function clarear() {
+    // Obtém o URL da imagem atual
+    let backgroundImage = lampada.style.backgroundImage;
+
+    // Verifica se a lâmpada está apagada ou acesa
+    if (backgroundImage.includes("lampada_apagada.png")) {
+        // Se estiver apagada, muda para a imagem acesa
+        lampada.style.backgroundImage = "url('./imgem/lampadaflorecente.png')";
+    } else {
+        // Se estiver acesa, muda para a imagem apagada
+        lampada.style.backgroundImage = "url('./imgem/lampada_apagada.png')";
+    }
+
+        
+      
+         }
+         
+    </script>
 </body>
 </html>
