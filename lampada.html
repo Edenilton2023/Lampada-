@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!-- <!DOCTYPE html>
 <html lang="pt-br
 ">
 <head>
@@ -81,7 +81,7 @@
     height: 180px;
     width: 180px;
 
-    }
+    } 
     
 
 
@@ -147,6 +147,96 @@
       
          }
          
+    </script>
+</body>
+</html>-->
+ 
+
+<h1>
+    chatGPT
+</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lâmpada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgba(128, 128, 128, 0.426);
+        }
+        .lampada {
+            width: 200px;
+            height: 250px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+          #queimar{
+            border: 1px solid black;
+            width: 140px;
+            border: 1px solid black;
+            height: 220px;
+            
+          
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        .tomada {
+            display: flex;
+            gap: 10px;
+        }
+        .button {
+            width: 120px;
+            height: 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bOn {
+            background-color: yellow;
+        }
+        .bOff {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="lampada">
+        <div class="button" id="queimar" onclick="toggleLampada('url(\'./imgem/queimada.png\')')"></div>
+    </div>
+    <div class="tomada">
+        <div class="button bOff" onclick="toggleLampada('url(\'./imgem/lampadaflorecente.png\')')">Luz Branca</div>
+        <div class="button bOn" onclick="toggleLampada('url(\'./imgem/lampada_acesa.png\')')">Luz Amarela</div>
+    </div>
+  
+
+    <script>
+        const lampada = document.querySelector('.lampada');
+
+        function toggleLampada(imagem) {
+            lampada.style.backgroundImage = imagem;
+        }
     </script>
 </body>
 </html>
